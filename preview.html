@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Love Story ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+:root {
+  --red: #ff3154;
+  --dark-red: #8e1029;
+  --black: #09090c;
+  --white: #fff3f5;
+  --muted: #b9a9ae;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+#musicButton {
+  position: fixed;
+  top: 18px;
+  right: 15px;
+  z-index: 9999;
+  background: #ff3154;
+  color: white;
+  border: 1px solid #ff8196;
+  border-radius: 999px;
+  padding: 12px 16px;
+  font-size: 13px;
+  box-shadow: 0 0 22px #ff315455;
+}
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 75px 20px 32px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 40%, #551020, #210b13 45%, #09090c 80%);
+}
+
+.hero::before,
+.hero::after {
+  content: "♥";
+  position: absolute;
+  color: #ff3154;
+  opacity: .12;
+  font-size: 220px;
+  pointer-events: none;
+}
+
+.hero::before {
+  top: -70px;
+  left: -60px;
+  transform: rotate(-20deg);
+}
+
+.hero::after {
+  bottom: -110px;
+  right: -40px;
+  transform: rotate(20deg);
+}
+
+.eyebrow {
+  color: #ff8a9e;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 11px;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+h1 {
+  font-size: clamp(44px, 9vw, 82px);
+  line-height: 1.08;
+  margin: 22px 0 16px;
+  font-weight: 500;
+}
+
+h1 span {
+  color: var(--red);
+  font-style: italic;
+}
+
+.intro {
+  color: #e2cbd1;
+  max-width: 480px;
+  line-height: 1.8;
+}
+
+.btn {
+  border: 1px solid var(--red);
+  background: var(--red);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 999px;
+  margin-top: 22px;
+  box-shadow: 0 0 28px #ff315426;
+  transition: .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px #ff315455;
+}
+
+.heart {
+  color: var(--red);
+  font-size: 30px;
+  animation: beat 1.3s infinite;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.18); }
+}
+
+section { padding: 76px 20px; }
+
+.container {
+  max-width: 950px;
+  margin: auto;
+}
+
+.section-label {
+  color: var(--red);
+  letter-spacing: 3px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(32px, 6vw, 48px);
+  margin: 12px 0;
+  font-weight: 500;
+}
+
+.sub {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.timeline {
+  margin-top: 38px;
+  border-left: 1px solid #682133;
+  padding-left: 25px;
+}
+
+.event {
+  position: relative;
+  padding: 0 0 34px;
+}
+
+.event::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--red);
+  left: -31px;
+  top: 7px;
+  box-shadow: 0 0 14px var(--red);
+}
+
+.date {
+  color: #ff8196;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.event h3 {
+  font-size: 23px;
+  margin: 8px 0;
+}
+
+.event p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.memories { background: #100b0e; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 13px;
+  margin-top: 30px;
+}
+
+.photo {
+  overflow: hidden;
+  border: 1px solid #392029;
+  border-radius: 14px;
+  background: #1c1117;
+}
+
+.photo img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.photo p {
+  padding: 0 13px;
+  color: #e9cbd2;
+  font-size: 13px;
+}
+
+.letter-area { text-align: center; }
+
+.envelope {
+  margin: 28px auto 0;
+  max-width: 560px;
+  padding: 32px 22px;
+  border: 1px solid #6e2639;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #211017, #0d0b0e);
+  box-shadow: 0 20px 60px #0005;
+}
+
+.seal {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: var(--dark-red);
+  font-size: 28px;
+}
+
+.letter {
+  display: none;
+  text-align: left;
+  margin-top: 25px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #fff3f5;
+  color: #2a1019;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+.letter.show {
+  display: block;
+  animation: appear .7s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  color: #9d8790;
+  font-size: 12px;
+}
+
+footer span { color: var(--red); }
+
+@media (max-width: 540px) {
+  section { padding: 58px 18px; }
+  .gallery { grid-template-columns: 1fr; }
+  .photo img { height: 300px; }
+  .hero { padding-top: 85px; }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop preload="auto">
+  <source src="music/1.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicButton" type="button" onclick="toggleMusic()">
+  🎵 Play Our Song
+</button>
+
+<header class="hero">
+  <div class="heart">♥</div>
+  <p class="eyebrow">A little world made just for you</p>
+  <h1>Our Love<br><span>Story.</span></h1>
+
+  <p class="intro">
+    මේ පුංචි website එක ඔයා වෙනුවෙන්මයි.
+    අපි දෙන්නගේ කතාවේ මට වටින මතක ටිකක් මෙතන තියෙනවා.
+  </p>
+
+  <button class="btn" onclick="startOurStory()">
+    අපේ කතාව බලමු ♥
+  </button>
+</header>
+
+<section id="story">
+  <div class="container">
+    <p class="section-label">Chapter one</p>
+    <h2>How it all began.</h2>
+    <p class="sub">මගේ ජීවිතේ ලස්සන මතක අතරේ, ඔයා නිසා විශේෂ වුණු දවස් කිහිපයක්.</p>
+
+    <div class="timeline">
+      <article class="event">
+        <span class="date">28 FEBRUARY 2026</span>
+        <h3>අපේ පළමු පිටුව ❤️</h3>
+        <p>අපේ ආදර කතාව පටන් ගත්ත දවස. මේ දවස මගේ මතකවල හැමදාම විශේෂයි.</p>
+      </article>
+
+      <article class="event">
+        <span class="date">A MEMORY TO KEEP</span>
+        <h3>අපේ පුංචි මතක</h3>
+        <p>අපි හිනා වුණු දවස්, කතා කරපු රෑවල්, එකිනෙකාව තේරුම් ගන්න ඉගෙන ගත්තු මොහොතවල්.</p>
+      </article>
+
+      <article class="event">
+        <span class="date">OUR NEXT CHAPTER</span>
+        <h3>තව ලස්සන දවස් ඉස්සරහට</h3>
+        <p>අපේ කතාව මෙතනින් ඉවර නැහැ. තව ලස්සන මතක ගොඩක් එකතු කරන්න තියෙනවා.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="memories">
+  <div class="container">
+    <p class="section-label">Little moments, big feelings</p>
+    <h2>Our memories.</h2>
+    <p class="sub">අපි දෙන්නගේ photos මෙතන දාන්න. ❤️</p>
+
+    <div class="gallery">
+      <div class="photo">
+        <img src="photos/us-1.jpg" alt="අපි දෙන්නා" loading="lazy">
+        <p>මගේ ප්‍රියතම මතකයක්.</p>
+      </div>
+      <div class="photo">
+        <img src="photos/us-2.jpg" alt="අපේ මතකයක්" loading="lazy">
+        <p>ඔයා එක්ක ගෙවුණු ලස්සන මොහොතක්.</p>
+      </div>
+      <div class="photo">
+        <img src="photos/us-3.jpg" alt="අපේ තවත් මතකයක්" loading="lazy">
+        <p>පුංචි මොහොතක්, ලොකු සතුටක්.</p>
+      </div>
+      <div class="photo">
+        <img src="photos/us-4.jpg" alt="අපේ ඡායාරූපයක්" loading="lazy">
+        <p>තව මතක ගොඩක් ඉස්සරහට.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="letter-area">
+  <div class="container">
+    <p class="section-label">Just for you</p>
+    <h2>One last thing...</h2>
+    <p class="sub">ඔයා වෙනුවෙන් මං හංගගෙන හිටපු පුංචි පණිවිඩයක්.</p>
+
+    <div class="envelope">
+      <div class="seal">♥</div>
+      <h3>To my favourite person</h3>
+      <p class="sub">මේක ඔයා වෙනුවෙන් ලියපු ලිපියක්.</p>
+
+      <button class="btn" id="openLetter" onclick="openLoveLetter()">
+        ලිපිය විවෘත කරන්න 💌
+      </button>
+
+      <div class="letter" id="letter">මගේ ආදරේ,
+
+මගේ ජීවිතේට ඔයා ආපු එක මට ගොඩක් වටින දෙයක්. හැම දවසක්ම පරිපූර්ණ නොවුණත්, අපි එකිනෙකාව තේරුම් අරගෙන, ගරු කරගෙන, එකට ඉස්සරහට යන්න මට ඕනේ.
+
+ඔයාගේ හිනාව, ඔයාගේ ආදරේ, මාව විශ්වාස කරන එක — මේ හැමදේම මට විශේෂයි. ඔයාට ඔයාගේම හීන තියෙනවා. ඒවා පස්සේ යද්දී ඔයාට සහයෝගය දෙන්නත්, ඔයා එක්ක ලස්සන මතක හදාගන්නත් මං කැමතියි.
+
+අදටත්, ඉස්සරහටත්, අපේ කතාව ආදරෙන් සහ අවංකකමින් ලියමු.
+
+ආදරෙයි. ❤️
+
+— ඔයාගේ ආදරේ</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Made with <span>♥</span>, just for you.
+  <p>Our story is still being written.</p>
+</footer>
+
+<script>
+const music = document.getElementById("bgMusic");
+const musicButton = document.getElementById("musicButton");
+
+music.volume = 0.35;
+
+async function startOurStory() {
+  document.querySelector("#story").scrollIntoView({
+    behavior: "smooth"
+  });
+
+  if (music.paused) {
+    try {
+      await music.play();
+      musicButton.textContent = "♫ Music On · Pause";
+    } catch (error) {
+      musicButton.textContent = "🎵 Tap to Play Our Song";
+    }
+  }
+}
+
+async function toggleMusic() {
+  if (music.paused) {
+    try {
+      await music.play();
+      musicButton.textContent = "♫ Music On · Pause";
+    } catch (error) {
+      musicButton.textContent = "🎵 Music unavailable — check 1.mp3";
+      console.error("Music playback failed:", error);
+    }
+  } else {
+    music.pause();
+    musicButton.textContent = "🎵 Play Our Song";
+  }
+}
+
+function openLoveLetter() {
+  const letter = document.getElementById("letter");
+  const button = document.getElementById("openLetter");
+
+  letter.classList.add("show");
+  button.textContent = "ආදරෙන් කියවන්න ❤️";
+  button.disabled = true;
+
+  letter.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+</script>
+
+</body>
+</html>
